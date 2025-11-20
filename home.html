@@ -48,47 +48,75 @@
   </style>
   <body>
     <!-- NAVBAR -->
-    <nav
-      class="nav-bar d-flex justify-content-between align-items-center text-white shadow"
-    >
-      <div class="m-0">
-        <img
-          src="assets/img/Skill2Earn.png"
-          alt="Skill2Earn Logo"
-          style="height: 20px; object-fit: contain"
-        />
-      </div>
-
-      <div class="d-flex gap-4">
-        <a href="#" class="text-white text-decoration-none">Tasks List</a>
-        <a href="#" class="text-white text-decoration-none">Ongoing Tasks</a>
-        <a href="#" class="text-white text-decoration-none">Micro-Course</a>
-      </div>
-
-      <div class="d-flex gap-3 align-items-center">
-        <button
-          class="btn btn-sm d-flex align-items-center gap-2 px-3"
-          style="background: transparent; border: 2px solid white; color: white"
-        >
-          <span>Profile</span>
+    <nav class="navbar navbar-expand-lg nav-bar text-white shadow px-3">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand text-white" href="#">
           <img
-            src="assets/img/profile-icon.png"
-            alt="user icon"
-            style="height: 16px; filter: brightness(0) invert(1)"
-          />
-        </button>
-
-        <a
-          href="#"
-          class="text-white fw-bold text-decoration-none d-flex align-items-center gap-2"
-        >
-          <span>Logout</span>
-          <img
-            src="assets/img/logout-icon.png"
-            alt="logout icon"
-            style="height: 16px"
+            src="assets/img/Skill2Earn.png"
+            alt="Skill2Earn Logo"
+            style="height: 22px; object-fit: contain"
           />
         </a>
+
+        <!-- Hamburger Button -->
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- MENU -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <!-- Center Menu -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4 text-center">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Tasks List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Ongoing Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Micro-Course</a>
+            </li>
+          </ul>
+
+          <!-- Right Menu -->
+          <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+            <!-- PROFILE -->
+            <button
+              class="btn btn-sm d-flex align-items-center gap-2 px-3"
+              style="
+                background: transparent;
+                border: 2px solid white;
+                color: white;
+              "
+            >
+              <span>Profile</span>
+              <img
+                src="assets/img/profile-icon.png"
+                alt="user icon"
+                style="height: 16px; filter: brightness(0) invert(1)"
+              />
+            </button>
+
+            <!-- LOGOUT -->
+            <a
+              href="#"
+              class="text-white fw-bold text-decoration-none d-flex align-items-center gap-2"
+            >
+              <span>Logout</span>
+              <img
+                src="assets/img/logout-icon.png"
+                alt="logout icon"
+                style="height: 16px; filter: brightness(0) invert(1)"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
 
