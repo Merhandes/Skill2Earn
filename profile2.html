@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Skill2Earn</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="home-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="homeAfter.html" style="text-decoration: none;">
+                    <h1 class="nav-brand">
+                        <span class="skill-nav">Skill</span><span class="two-nav">2</span><span
+                            class="earn-nav">Earn</span>
+                    </h1>
+                </a>
+            </div>
+
+
+            <div class="nav-menu">
+                <a href="homeAfter.html#micro-course" class="nav-link">Micro-Course</a>
+                <a href="homeAfter.html#tasks-list" class="nav-link">Tasks List</a>
+                <a href="ongoingTasksA.html" class="nav-link">Ongoing Tasks</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="profile2.html" class="profile-btn">
+                    Profile
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" fill="white" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
+                    </svg>
+                </a>
+
+                <a href="index.html" class="logout-btn">
+                    Logout
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN PROFILE CONTENT -->
+    <main class="profile-main">
+        <section class="profile-card">
+            <!-- top: avatar + name + badges -->
+            <div class="profile-top">
+                <div class="profile-picture">
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="50" fill="#cbd5e0" />
+                        <circle cx="50" cy="40" r="18" fill="#fff" />
+                        <path d="M 20 85 Q 20 60 50 60 Q 80 60 80 85" fill="#fff" />
+                    </svg>
+                </div>
+
+                <div class="profile-header">
+                    <p class="profile-meta">Male - DD/MM/YYYY</p>
+                    <h1 class="profile-name">Arya Setiawan</h1>
+
+                    <div class="profile-badges">
+                        <img src="assets/img/badge1.png" alt="badge 1" />
+                        <img src="assets/img/badge2.png" alt="badge 2" />
+                        <img src="assets/img/badge3.png" alt="badge 3" />
+                        <img src="assets/img/badge4.png" alt="badge 4" />
+                    </div>
+                </div>
+
+                <!-- edit icon -->
+                <button class="profile-edit-btn" aria-label="Edit profile">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 20h4L19 9l-4-4L4 16v4z" stroke="#555" stroke-width="1.6" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M14 5l4 4" stroke="#555" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- description -->
+            <section class="profile-section-block">
+                <h2 class="profile-section-title">Profile Description</h2>
+                <p class="profile-description-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum has been the industry's standard dummy text
+                    ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not
+                    only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.
+                </p>
+            </section>
+
+            <!-- skill interests -->
+            <section class="profile-section-block">
+                <h2 class="profile-section-title">Skill Interests</h2>
+                <div class="skills-tags">
+                    <span class="skill-pill">Data Entry</span>
+                    <span class="skill-pill">Graphic Design</span>
+                </div>
+            </section>
+
+            <!-- portfolio -->
+            <section class="profile-section-block">
+                <h2 class="profile-section-title">Portofolio</h2>
+
+                <div class="portfolio-files">
+                    <button class="file-chip">
+                        <span class="file-icon"></span>
+                        <span>Portofolio.pdf</span>
+                    </button>
+                    <button class="file-chip">
+                        <span class="file-icon"></span>
+                        <span>Portofolio.pdf</span>
+                    </button>
+                    <button class="file-chip">
+                        <span class="file-icon"></span>
+                        <span>portofolio.png</span>
+                    </button>
+                </div>
+
+                <div class="profile-contact-row">
+                    <div class="email-box">
+                        <span class="email-text">aryasetiawan@gmail.com</span>
+                        <button class="copy-btn" aria-label="Copy email">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <rect x="9" y="9" width="11" height="11" rx="2" stroke="#555" stroke-width="1.6" />
+                                <rect x="4" y="4" width="11" height="11" rx="2" stroke="#555" stroke-width="1.6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button class="contact-btn">Contact</button>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+
+</html>

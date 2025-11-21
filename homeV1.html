@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill2Earn</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <style>
+    body {
+      background: #f3f7f8;
+    }
+    .nav-bar {
+      background: #0067d4;
+      border-radius: 20px;
+      padding: 10px 25px;
+      margin: 20px;
+    }
+    .course-card {
+      border-radius: 15px;
+      color: white;
+      font-weight: 700;
+      height: 180px;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.2s;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg nav-bar text-white shadow px-3">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand text-white" href="#">
+          <img
+            src="assets/img/Skill2Earn.png"
+            alt="Skill2Earn Logo"
+            style="height: 22px; object-fit: contain"
+          />
+        </a>
+
+        <!-- Hamburger Button -->
+        <button
+          class="navbar-toggler bg-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- MENU -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <!-- Center Menu -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4 text-center">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Tasks List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Ongoing Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Micro-Course</a>
+            </li>
+          </ul>
+
+          <!-- Right Menu -->
+          <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+            <!-- PROFILE -->
+            <button
+              class="btn btn-sm d-flex align-items-center gap-2 px-3"
+              style="
+                background: transparent;
+                border: 2px solid white;
+                color: white;
+              "
+            >
+              <span>Profile</span>
+              <img
+                src="assets/img/profile-icon.png"
+                alt="user icon"
+                style="height: 16px; filter: brightness(0) invert(1)"
+              />
+            </button>
+
+            <!-- LOGOUT -->
+            <a
+              href="#"
+              class="text-white fw-bold text-decoration-none d-flex align-items-center gap-2"
+            >
+              <span>Logout</span>
+              <img
+                src="assets/img/logout-icon.png"
+                alt="logout icon"
+                style="height: 16px; filter: brightness(0) invert(1)"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MICRO COURSE SECTION -->
+    <div class="container mt-4">
+      <h3 class="fw-bold mb-4 d-flex align-items-center">
+        Micro-Course
+        <img
+          src="assets/img/rise-icon.png"
+          alt="arrow icon"
+          style="height: 20px; margin-left: 6px"
+        />
+      </h3>
+
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div
+            class="course-card"
+            style="background-image: url('assets/img/data-card.png')"
+          ></div>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <div
+            class="course-card"
+            style="background-image: url('assets/img/graphic-card.png')"
+          ></div>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <div
+            class="course-card"
+            style="background-image: url('assets/img/copy-card.png')"
+          ></div>
+        </div>
+
+        <div class="col-md-3 col-6">
+          <div
+            class="course-card"
+            style="background-image: url('assets/img/research-card.png')"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TASKS LIST SECTION -->
+    <div class="container mt-5">
+      <h3 class="fw-bold mb-4">
+        Tasks List <span class="text-primary">✔</span>
+      </h3>
+
+      <div class="text-center text-secondary fs-4" style="padding: 60px 0">
+        Complete micro-course of any skill you’re interested in to start
+        accepting tasks!
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

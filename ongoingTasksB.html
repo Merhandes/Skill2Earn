@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ongoing Tasks</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="home-body">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="home.html" style="text-decoration: none;">
+                    <h1 class="nav-brand">
+                        <span class="skill-nav">Skill</span><span class="two-nav">2</span><span
+                            class="earn-nav">Earn</span>
+                    </h1>
+                </a>
+            </div>
+
+            <div class="nav-menu">
+                <a href="home.html#micro-course" class="nav-link">Micro-Course</a>
+                <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
+                <a href="#ongoing-tasks" class="nav-link">Ongoing Tasks</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="profile.html" class="profile-btn">
+                    Profile
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" fill="white" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
+                    </svg>
+                </a>
+
+                <a href="index.html" class="logout-btn">
+                    Logout
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ongoing Tasks Section -->
+    <section id="ongoing-tasks" class="section-ongoing">
+        <!-- Bagian atas (abu-abu) -->
+        <div class="ongoing-top">
+            <h2 class="section-title">
+                Ongoing Tasks
+                <svg class="loading-icon" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#0066CC" stroke-width="3" opacity="0.3" />
+                    <path d="M12 2a10 10 0 0 1 10 10" stroke="#0066CC" stroke-width="3" stroke-linecap="round" />
+                </svg>
+            </h2>
+
+            <div class="ongoing-empty">
+                <p class="ongoing-message">
+                    Complete micro-course of any skill you’re interested in to start
+                    accepting tasks!
+                </p>
+            </div>
+        </div>
+
+        <!-- Bagian bawah (putih) seperti Completed Tasks) -->
+        <div class="ongoing-bottom">
+            <h2 class="section-title">
+                Completed Tasks
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="#1A73E8" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="#1A73E8" stroke-width="2" />
+                </svg>
+            </h2>
+
+            <div class="completed-empty">
+                <p class="completed-message">
+                    Complete micro-course of any skill you’re interested in to start
+                    accepting tasks!
+                </p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

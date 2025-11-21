@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="home.html" style="text-decoration: none;">
+                    <h1 class="nav-brand">
+                        <span class="skill-nav">Skill</span><span class="two-nav">2</span><span
+                            class="earn-nav">Earn</span>
+                    </h1>
+                </a>
+            </div>
+
+            <div class="nav-menu">
+                <a href="home.html#micro-course" class="nav-link">Micro-Course</a>
+                <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
+                <a href="#ongoing-tasks" class="nav-link">Ongoing Tasks</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="profile.html" class="profile-btn">
+                    Profile
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" fill="white" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
+                    </svg>
+                </a>
+
+                <a href="index.html" class="logout-btn">
+                    Logout
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="gate-wrapper">
+        <form class="gate-form">
+            <div class="gate-question">
+                <label class="gate-label" for="answer1"><strong>1. What are the rules in copywriting?</strong></label>
+                <input type="text" id="answer1" name="answer1" class="gate-input" placeholder="Answer">
+            </div>
+            <div class="gate-question">
+                <label class="gate-label" for="answer2"><strong>2. What is a Call to Action (CTA), and why is it
+                        important?</strong></label>
+                <input type="text" id="answer2" name="answer2" class="gate-input" placeholder="Answer">
+            </div>
+            <div class="gate-question">
+                <label class="gate-label" for="answer3"><strong>3. How do you identify a target
+                        audience?</strong></label>
+                <input type="text" id="answer3" name="answer3" class="gate-input" placeholder="Answer">
+            </div>
+            <button type="submit" class="gate-btn">Submit</button>
+        </form>
+
+        <div class="popup-overlay" id="score-popup">
+            <div class="popup-score-card">
+                <h1 class="popup-title">Your Score</h1>
+                <div class="popup-score">80/100</div>
+                <a href="certification.html" style="text-decoration: none;">
+                    <button class="popup-btn" onclick="closeScorePopup()">Confirm</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

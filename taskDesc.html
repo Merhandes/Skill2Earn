@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Description</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="homeAfter.html" style="text-decoration: none;">
+                    <h1 class="nav-brand">
+                        <span class="skill-nav">Skill</span><span class="two-nav">2</span><span
+                            class="earn-nav">Earn</span>
+                    </h1>
+                </a>
+            </div>
+
+
+            <div class="nav-menu">
+                <a href="homeAfter.html#micro-course" class="nav-link">Micro-Course</a>
+                <a href="homeAfter.html#tasks-list" class="nav-link">Tasks List</a>
+                <a href="ongoingTasksA.html" class="nav-link">Ongoing Tasks</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="profile2.html" class="profile-btn">
+                    Profile
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" fill="white" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
+                    </svg>
+                </a>
+
+                <a href="index.html" class="logout-btn">
+                    Logout
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="taskdesc-container">
+        <div class="taskdesc-header">
+            <img src="assets/img/job.png" alt="Company Logo" class="taskdesc-logo" />
+            <div>
+                <div class="taskdesc-company">PT. Tiga Periode Emas Bangsa</div>
+                <div class="taskdesc-title">Logo Designer</div>
+            </div>
+            <div class="taskdesc-save">
+                <svg width="28" height="28" fill="none">
+                    <rect width="28" height="28" rx="8" fill="#fff" />
+                    <path
+                        d="M14 21L11 19.1C7.25 16.65 5 14.85 5 12.5C5 10.5 6.5 9 8.5 9C9.74 9 10.92 9.62 11.57 10.58C11.98 11.16 12.82 11.16 13.23 10.58C13.88 9.62 15.06 9 16.3 9C18.3 9 19.8 10.5 19.8 12.5C19.8 14.85 17.55 16.65 13.81 19.1L14 21Z"
+                        stroke="#B8C4D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="taskdesc-main">
+            <div class="taskdesc-section">
+                <div class="taskdesc-subtitle">Project Overview</div>
+                <div class="taskdesc-overview">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book ...
+                </div>
+            </div>
+            <div class="taskdesc-section">
+                <div class="taskdesc-subtitle">Skills</div>
+                <div class="taskdesc-skills">
+                    <span class="skill-pill">UI Designer</span>
+                    <span class="skill-pill">Figma</span>
+                    <span class="skill-pill">Photoshop</span>
+                </div>
+            </div>
+            <div class="taskdesc-section mb24">
+                <div class="taskdesc-subtitle">Detail Project</div>
+                <div class="taskdesc-details">
+                    <span class="detail-label">Deadline:</span> <span class="detail-value">1 Week</span>
+                    <span class="detail-dot verified"></span> Project Verified
+                    <span class="detail-dot verified"></span> Payment Verified
+                </div>
+                <div class="taskdesc-contact-row">
+                    <input class="taskdesc-email" type="text" value="pt.3periode@gmail.com" readonly />
+                    <button class="copy-btn">&#128203;</button>
+                    <button class="taskdesc-apply-btn">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="applied-popup">
+        <div class="popup-applied-card">
+            <h1 class="popup-applied-title">Task Applied</h1>
+            <button class="popup-applied-btn" onclick="closeAppliedPopup()">Confirm</button>
+        </div>
+    </div>
+
+    <script>document.querySelector('.taskdesc-apply-btn').addEventListener('click', function () {
+            document.getElementById('applied-popup').style.display = 'flex';
+        });
+        function closeAppliedPopup() {
+            document.getElementById('applied-popup').style.display = 'none';
+        }</script>
+</body>
+
+</html>
