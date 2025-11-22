@@ -132,8 +132,8 @@ body {
 
 .back-button {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 20px;
+  left: 10px;
   width: 40px;
   height: 40px;
   display: flex;
@@ -299,6 +299,7 @@ body {
   text-align: center;
   margin-top: 60px;
   margin-bottom: 30px;
+  filter: brightness(0) invert(1);
 }
 
 .detail-brand {
@@ -494,7 +495,7 @@ body {
   border: none;
   margin-top: 16px;
   margin-bottom: 0;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.10);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
   cursor: pointer;
   transition: all 0.22s;
   display: block;
@@ -547,7 +548,7 @@ body {
   margin-bottom: 0;
   padding: 22px 24px;
   outline: none;
-  transition: box-shadow .2s;
+  transition: box-shadow 0.2s;
 }
 
 .gate-input:focus {
@@ -566,7 +567,7 @@ body {
   width: 340px;
   padding: 20px 0;
   cursor: pointer;
-  transition: background .2s, transform .2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .gate-btn:hover {
@@ -622,7 +623,7 @@ body {
   border-radius: 14px;
   cursor: pointer;
   font-weight: 600;
-  transition: background .2s, transform .2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .popup-btn:hover {
@@ -723,7 +724,7 @@ body {
   padding: 70px 16px 52px 16px;
   max-width: 500px;
   width: 93%;
-  box-shadow: 0 7px 48px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 7px 48px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -761,7 +762,7 @@ body {
   border-radius: 18px;
   cursor: pointer;
   font-weight: 600;
-  transition: background .2s, transform .2s;
+  transition: background 0.2s, transform 0.2s;
   display: block;
   margin: 0 auto;
 }
@@ -810,11 +811,14 @@ body {
 .task-tags {
   display: flex;
   gap: 10px;
+  align-items: center;
   flex-wrap: wrap;
   margin-bottom: 3px;
   margin-top: 2px;
 }
-
+.task-tags .task-tag-apply {
+  text-decoration: none;
+}
 .task-tag {
   background: #f3f5f8;
   color: #222;
@@ -822,6 +826,7 @@ body {
   border-radius: 9px;
   padding: 6px 18px;
   font-weight: 600;
+  line-height: 1;
 }
 
 .task-tag-apply {
@@ -850,7 +855,7 @@ body {
 }
 
 .task-verified {
-  color: #26A3B6;
+  color: #26a3b6;
   font-weight: 600;
   font-size: 0.98em;
 }
@@ -1004,7 +1009,7 @@ body {
   border-radius: 18px;
   cursor: pointer;
   font-weight: 600;
-  transition: background .2s, transform .2s;
+  transition: background 0.2s, transform 0.2s;
   display: block;
   margin: 0 auto;
 }
@@ -1123,7 +1128,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .circuit-left,
   .circuit-right {
     display: none;
@@ -1248,7 +1252,6 @@ body {
   transition: opacity 0.3s ease;
 }
 
-
 .nav-link:hover {
   opacity: 0.8;
 }
@@ -1279,6 +1282,7 @@ body {
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .profile-btn:hover,
@@ -1416,7 +1420,7 @@ body {
 }
 
 .verified {
-  color: #26A3B6;
+  color: #26a3b6;
 }
 
 .taskdesc-contact-row {
@@ -1747,7 +1751,127 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
+.profile-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 14px;
+  margin-top: 6px; /* tambah ini, bisa diatur 4–10px sesuai selera */
+}
+.profile-top {
+  display: flex;
+  align-items: center; /* tadinya flex-start */
+  gap: 30px;
+  position: relative;
+}
+/* Tombol Upload Task */
+.upload-task-btn {
+  margin-left: auto; /* dorong ke paling kanan */
+  margin-top: 60px;
+  padding: 12px 36px;
+  background: #0052cc; /* biru seperti desain */
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.upload-task-btn:hover {
+  background: #0041a8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.upload-task-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+/* WRAPPER AGAR SEMUA SEJAJAR */
+.mode-create-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 20px;
+}
+
+/* MODE LABEL + RADIO */
+.mode-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.mode-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* RADIO BUTTON */
+.mode-selector {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mode-option input {
+  display: none;
+}
+
+.mode-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.mode-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #b3b3b3;
+  background: transparent;
+  transition: 0.2s;
+}
+
+.mode-option input:checked + .mode-circle {
+  background: #0052cc;
+  border-color: #0052cc;
+}
+
+.mode-text {
+  font-size: 15px;
+  color: #555;
+}
+
+/* BUTTON CREATE */
+.btn-create {
+  margin-left: auto; /* dorong ke paling kanan */
+  margin-top: 20px;
+  padding: 12px 36px;
+  background: #0052cc; /* biru seperti desain */
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-create:hover {
+  background: #0041a8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
 /* Responsive Design for Home */
 @media (max-width: 1200px) {
   .course-grid {
