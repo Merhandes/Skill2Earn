@@ -3,9 +3,245 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Profile - Skill2Earn</title>
+    <title>Skill2Earn - Student Profile</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <link rel="stylesheet" href="style.css" />
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .detail-container {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      background-color: #fff;
+    }
+
+    .detail-left {
+      flex: 1;
+      background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .back-button-detail {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      z-index: 10;
+    }
+
+    .back-button-detail:hover {
+      transform: translateX(-4px);
+    }
+
+    .detail-logo {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 30px;
+      filter: brightness(0) invert(1);
+    }
+    .detail-brand {
+      font-size: 48px;
+      font-weight: 700;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .skill-white {
+      color: #fff;
+    }
+
+    .two-cyan {
+      color: #7dd3c0;
+    }
+
+    .earn-white {
+      color: #fff;
+    }
+
+    .detail-tagline {
+      color: #7dd3c0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .illustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      padding: 20px;
+    }
+
+    .detail-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background-color: #fff;
+    }
+
+    .detail-form-container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .welcome-heading {
+      font-size: 42px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .welcome-subheading {
+      font-size: 16px;
+      color: #95a5a6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .profile-upload {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #cbd5e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .profile-picture svg {
+      width: 100%;
+      height: 100%;
+    }
+    .form-input {
+      width: 100%;
+      padding: 18px 20px;
+      font-size: 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      background-color: #f8f9fa;
+    }
+
+    .form-input:focus {
+      border-color: #0066cc;
+      background-color: white;
+    }
+
+    .form-input::placeholder {
+      color: #bdc3c7;
+    }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      color: #2c3e50;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .radio-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 14px;
+      color: #2c3e50;
+    }
+
+    .radio-label input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      cursor: pointer;
+      accent-color: #0066cc;
+    }
+
+    .radio-label span {
+      user-select: none;
+    }
+    .detail-form {
+      width: 100%;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 18px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #0066cc;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #0052a3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    }
+    .btn-full {
+      width: 100%;
+    }
+  </style>
 
   <body>
     <div class="detail-container">
@@ -318,5 +554,10 @@
         </div>
       </div>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
