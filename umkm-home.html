@@ -4,15 +4,356 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile - Skill2Earn</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    .skill-nav {
+      color: #fff;
+    }
+
+    .two-nav {
+      color: #7dd3c0;
+    }
+
+    .earn-nav {
+      color: #fff;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .profile-main {
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 40px;
+    }
+    .profile-card {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    }
+    .profile-top {
+      display: flex;
+      align-items: center; /* tadinya flex-start */
+      gap: 30px;
+      position: relative;
+    }
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #cbd5e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .profile-picture svg {
+      width: 100%;
+      height: 100%;
+    }
+    .umkm-profile {
+      background-color: #cbd5e0;
+    }
+    .umkm-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .profile-edit-btn {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 999px;
+      transition: background 0.2s ease;
+    }
+    .profile-edit-btn:hover {
+      background-color: #f1f3f4;
+    }
+    .upload-task-btn {
+      margin-left: auto; /* dorong ke paling kanan */
+      margin-top: 60px;
+      padding: 12px 36px;
+      background: #0052cc; /* biru seperti desain */
+      color: #ffffff;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      transition: background 0.2s ease, transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .upload-task-btn:hover {
+      background: #0041a8;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+
+    .upload-task-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+    .profile-section-block {
+      margin-top: 32px;
+    }
+
+    .profile-section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 12px;
+    }
+
+    .profile-description-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+    }
+    .tasklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 28px;
+      margin-top: 10px;
+    }
+
+    .task-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+      border: 1.8px solid #e5eaf0;
+      padding: 18px 30px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 320px;
+    }
+    .task-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .task-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: #f6f8fa;
+      object-fit: cover;
+    }
+
+    .task-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-title {
+      font-size: 1.16em;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 2px;
+    }
+
+    .task-desc {
+      font-size: 0.98em;
+      color: #666;
+      margin-bottom: 2px;
+      max-width: 340px;
+      letter-spacing: 0.01em;
+    }
+    .task-tags {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+      margin-top: 2px;
+    }
+    .task-tags .task-tag-apply {
+      text-decoration: none;
+    }
+    .task-tag {
+      background: #f3f5f8;
+      color: #222;
+      font-size: 0.92em;
+      border-radius: 9px;
+      padding: 6px 18px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .task-tag-apply {
+      background: #0066cc;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .task-right {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .task-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1em;
+      flex-wrap: wrap;
+      color: #222;
+      margin-top: 4px;
+    }
+
+    .task-pay {
+      font-weight: 700;
+    }
+
+    .task-verified {
+      color: #26a3b6;
+      font-weight: 600;
+      font-size: 0.98em;
+    }
+
+    .task-deadline {
+      color: #636875;
+      font-size: 0.98em;
+      font-weight: 600;
+    }
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-pill {
+      background-color: #f1f3f4;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 14px;
+      color: #444;
+      font-weight: 500;
+    }
+  </style>
 
   <body class="home-body">
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <a href="home.html" style="text-decoration: none">
+          <a href="umkm-home.html" style="text-decoration: none">
             <h1 class="nav-brand">
               <span class="skill-nav">Skill</span><span class="two-nav">2</span
               ><span class="earn-nav">Earn</span>
@@ -21,7 +362,7 @@
         </div>
 
         <div class="nav-menu">
-          <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
+          <a href="umkm-task.html" class="nav-link">Tasks List</a>
         </div>
 
         <div class="nav-actions">

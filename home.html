@@ -1,147 +1,546 @@
 <!DOCTYPE html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill2Earn - Home</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    /> -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home - Skill2Earn</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
 
-<body class="home-body">
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="home.html" style="text-decoration: none;">
-          <h1 class="nav-brand">
-            <span class="skill-nav">Skill</span><span class="two-nav">2</span><span class="earn-nav">Earn</span>
-          </h1>
-        </a>
-      </div>
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
 
-      <div class="nav-menu">
-        <a href="#micro-course" class="nav-link">Micro-Course</a>
-        <a href="#tasks-list" class="nav-link">Tasks List</a>
-        <a href="ongoingTasksB.html" class="nav-link">Ongoing Tasks</a>
-      </div>
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-      <div class="nav-actions">
-        <a href="profile.html" class="profile-btn">
-          Profile
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="8" r="4" fill="white" />
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
-          </svg>
-        </a>
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
 
-        <a href="index.html" class="logout-btn">
-          Logout
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </nav>
+    .skill-nav {
+      color: #fff;
+    }
 
-  <!-- Main Content -->
-  <main class="home-main">
-    <!-- Micro-Course Section -->
-    <section id="micro-course" class="section-micro-course">
-      <div class="section-header">
-        <h2 class="section-title">
-          Micro-Course
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <path d="M22 7L13.5 15.5L8.5 10.5L2 17" stroke="#0066CC" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-            <polyline points="16 7 22 7 22 13" stroke="#0066CC" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </h2>
-      </div>
+    .two-nav {
+      color: #7dd3c0;
+    }
 
-      <div class="course-grid">
-        <!-- Data Entry Course -->
-        <div class="course-card course-purple">
-          <div class="course-overlay">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-              <path d="M20 25L15 30L20 35" stroke="white" stroke-width="3" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M40 25L45 30L40 35" stroke="white" stroke-width="3" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M32 20L28 40" stroke="white" stroke-width="3" stroke-linecap="round" />
-            </svg>
-            <h3 class="course-title">DATA ENTRY</h3>
-          </div>
+    .earn-nav {
+      color: #fff;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .home-main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .section-micro-course {
+      background-color: #d5dce0;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+    }
+    .section-header {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+    .course-card {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-purple {
+      background: linear-gradient(135deg, #6b46c1 0%, #553c9a 100%);
+    }
+
+    .course-blue {
+      background: linear-gradient(135deg, #5b9bd5 0%, #4a7fb8 100%);
+    }
+
+    .course-green {
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    }
+
+    .course-purple-alt {
+      background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+    }
+
+    .course-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .course-title {
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 15px;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+    }
+    .section-tasks-list {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      min-height: 400px;
+    }
+
+    .tasks-empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+
+    .tasks-message {
+      font-size: 24px;
+      color: #95a5a6;
+      text-align: center;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    @media (max-width: 1200px) {
+      .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .home-main {
+        padding: 20px;
+      }
+
+      .section-micro-course,
+      .section-tasks-list {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .course-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .course-title {
+        font-size: 20px;
+      }
+
+      .tasks-message {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <body class="home-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="home.html" style="text-decoration: none">
+            <h1 class="nav-brand">
+              <span class="skill-nav">Skill</span><span class="two-nav">2</span
+              ><span class="earn-nav">Earn</span>
+            </h1>
+          </a>
         </div>
 
-        <!-- Graphic Design Course -->
-        <div class="course-card course-blue">
-          <div class="course-overlay">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-              <circle cx="30" cy="30" r="20" stroke="white" stroke-width="3" fill="none" />
-              <path d="M30 15L35 25L45 25L37 32L40 42L30 36L20 42L23 32L15 25L25 25L30 15Z" fill="white" />
-            </svg>
-            <h3 class="course-title">GRAPHIC<br />DESIGN</h3>
-          </div>
+        <div class="nav-menu">
+          <a href="#micro-course" class="nav-link">Micro-Course</a>
+          <a href="#tasks-list" class="nav-link">Tasks List</a>
+          <a href="ongoingTasksB.html" class="nav-link">Ongoing Tasks</a>
         </div>
 
-        <!-- Copywriting Course -->
-        <div class="course-card course-green">
-          <div class="course-overlay">
-            <a href="micro-course.html" style="text-decoration: none;">
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-btn">
+            Profile
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="white" />
+              <path
+                d="M4 20c0-4 3.6-7 8-7s8 3 8 7"
+                stroke="white"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </a>
+
+          <a href="index.html" class="logout-btn">
+            Logout
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="home-main">
+      <!-- Micro-Course Section -->
+      <section id="micro-course" class="section-micro-course">
+        <div class="section-header">
+          <h2 class="section-title">
+            Micro-Course
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M22 7L13.5 15.5L8.5 10.5L2 17"
+                stroke="#0066CC"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <polyline
+                points="16 7 22 7 22 13"
+                stroke="#0066CC"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </h2>
+        </div>
+
+        <div class="course-grid">
+          <!-- Data Entry Course -->
+          <div class="course-card course-purple">
+            <div class="course-overlay">
               <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="20" y="15" width="25" height="30" rx="2" stroke="white" stroke-width="3" fill="none" />
-                <line x1="25" y1="22" x2="40" y2="22" stroke="white" stroke-width="2" />
-                <line x1="25" y1="28" x2="40" y2="28" stroke="white" stroke-width="2" />
-                <line x1="25" y1="34" x2="35" y2="34" stroke="white" stroke-width="2" />
+                <path
+                  d="M20 25L15 30L20 35"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M40 25L45 30L40 35"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M32 20L28 40"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
               </svg>
-              <h3 class="course-title">COPYWRITING</h3>
-            </a>
+              <h3 class="course-title">DATA ENTRY</h3>
+            </div>
+          </div>
+
+          <!-- Graphic Design Course -->
+          <div class="course-card course-blue">
+            <div class="course-overlay">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <circle
+                  cx="30"
+                  cy="30"
+                  r="20"
+                  stroke="white"
+                  stroke-width="3"
+                  fill="none"
+                />
+                <path
+                  d="M30 15L35 25L45 25L37 32L40 42L30 36L20 42L23 32L15 25L25 25L30 15Z"
+                  fill="white"
+                />
+              </svg>
+              <h3 class="course-title">GRAPHIC<br />DESIGN</h3>
+            </div>
+          </div>
+
+          <!-- Copywriting Course -->
+          <div class="course-card course-green">
+            <div class="course-overlay">
+              <a href="micro-course.html" style="text-decoration: none">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                  <rect
+                    x="20"
+                    y="15"
+                    width="25"
+                    height="30"
+                    rx="2"
+                    stroke="white"
+                    stroke-width="3"
+                    fill="none"
+                  />
+                  <line
+                    x1="25"
+                    y1="22"
+                    x2="40"
+                    y2="22"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="25"
+                    y1="28"
+                    x2="40"
+                    y2="28"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="25"
+                    y1="34"
+                    x2="35"
+                    y2="34"
+                    stroke="white"
+                    stroke-width="2"
+                  />
+                </svg>
+                <h3 class="course-title">COPYWRITING</h3>
+              </a>
+            </div>
+          </div>
+
+          <!-- Research/Admin Course -->
+          <div class="course-card course-purple-alt">
+            <div class="course-overlay">
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                <rect
+                  x="18"
+                  y="20"
+                  width="20"
+                  height="14"
+                  rx="2"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <rect x="22" y="28" width="12" height="2" fill="white" />
+                <circle cx="28" cy="24" r="1.5" fill="white" />
+                <path
+                  d="M20 34L20 38L38 38L38 34"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="35"
+                  cy="25"
+                  r="3"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="none"
+                />
+                <path d="M37 27L42 32" stroke="white" stroke-width="2" />
+              </svg>
+              <h3 class="course-title">RESEARCH/<br />ADMIN</h3>
+            </div>
           </div>
         </div>
+      </section>
 
-        <!-- Research/Admin Course -->
-        <div class="course-card course-purple-alt">
-          <div class="course-overlay">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-              <rect x="18" y="20" width="20" height="14" rx="2" stroke="white" stroke-width="2" fill="none" />
-              <rect x="22" y="28" width="12" height="2" fill="white" />
-              <circle cx="28" cy="24" r="1.5" fill="white" />
-              <path d="M20 34L20 38L38 38L38 34" stroke="white" stroke-width="2" />
-              <circle cx="35" cy="25" r="3" stroke="white" stroke-width="2" fill="none" />
-              <path d="M37 27L42 32" stroke="white" stroke-width="2" />
+      <!-- Tasks List Section -->
+      <section id="tasks-list" class="section-tasks-list">
+        <div class="section-header">
+          <h2 class="section-title">
+            Tasks List
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="#0066CC"
+                stroke-width="2"
+                fill="none"
+              />
+              <path
+                d="M8 12L11 15L16 9"
+                stroke="#0066CC"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            <h3 class="course-title">RESEARCH/<br />ADMIN</h3>
-          </div>
+          </h2>
         </div>
-      </div>
-    </section>
 
-    <!-- Tasks List Section -->
-    <section id="tasks-list" class="section-tasks-list">
-      <div class="section-header">
-        <h2 class="section-title">
-          Tasks List
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="#0066CC" stroke-width="2" fill="none" />
-            <path d="M8 12L11 15L16 9" stroke="#0066CC" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </h2>
-      </div>
-
-      <div class="tasks-empty">
-        <p class="tasks-message">
-          Complete micro-course of any skill you're interested in to start
-          accepting tasks!
-        </p>
-      </div>
-    </section>
-
-  </main>
-</body>
-
+        <div class="tasks-empty">
+          <p class="tasks-message">
+            Complete micro-course of any skill you're interested in to start
+            accepting tasks!
+          </p>
+        </div>
+      </section>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -1,116 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill2Earn - Task Description</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Description</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
 
-<body class="home-body">
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    .skill-nav {
+      color: #fff;
+    }
+
+    .two-nav {
+      color: #7dd3c0;
+    }
+
+    .earn-nav {
+      color: #fff;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .taskdesc-container {
+      max-width: 750px;
+      margin: 70px auto 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 6px 32px rgba(0, 0, 0, 0.05);
+      padding: 44px 44px 40px 44px;
+    }
+
+    .taskdesc-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 22px;
+      margin-bottom: 25px;
+    }
+
+    .taskdesc-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-right: 4px;
+    }
+
+    .taskdesc-company {
+      color: #888;
+      font-size: 1.18em;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .taskdesc-title {
+      font-size: 2em;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 2px;
+    }
+
+    .taskdesc-save {
+      margin-left: auto;
+      padding-top: 8px;
+      cursor: pointer;
+    }
+
+    .taskdesc-main {
+      margin-top: 20px;
+    }
+
+    .taskdesc-section {
+      margin-bottom: 40px;
+    }
+
+    .taskdesc-subtitle {
+      font-size: 1.32em;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 14px;
+    }
+
+    .taskdesc-overview {
+      color: #444;
+      line-height: 1.7;
+      font-size: 1.12em;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .taskdesc-skills {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+
+    .skill-pill {
+      background-color: #ededed;
+      border-radius: 12px;
+      padding: 12px 28px;
+      font-size: 1em;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .mb24 {
+      margin-bottom: 24px;
+    }
+
+    .taskdesc-details {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 22px;
+      font-size: 1.08em;
+      flex-wrap: wrap;
+      color: #222;
+    }
+
+    .detail-label {
+      color: #555;
+      font-weight: 500;
+    }
+
+    .detail-value {
+      font-weight: 700;
+      color: #222;
+      margin-right: 15px;
+    }
+
+    .detail-dot {
+      margin: 0 7px;
+      font-size: 1.2em;
+    }
+
+    .verified {
+      color: #26a3b6;
+    }
+
+    .taskdesc-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .taskdesc-email {
+      background: #f3f5f8;
+      border-radius: 9px;
+      border: none;
+      font-size: 1.14em;
+      color: #888;
+      padding: 14px 18px;
+      width: 270px;
+    }
+
+    .copy-btn {
+      background: #ededed;
+      border-radius: 8px;
+      border: none;
+      padding: 8px 10px;
+      font-size: 1.22em;
+      color: #444;
+      cursor: pointer;
+    }
+
+    .taskdesc-apply-btn {
+      background: #0066cc;
+      color: #fff;
+      font-size: 1.28em;
+      padding: 0 48px;
+      border-radius: 9px;
+      border: none;
+      height: 54px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 18px;
+      transition: background 0.2s, transform 0.18s;
+    }
+
+    .taskdesc-apply-btn:hover {
+      background: #0052a3;
+      transform: translateY(-1px);
+    }
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(60, 60, 60, 0.13);
+      z-index: 3000;
+    }
+
+    .popup-applied-card {
+      background: #ededed;
+      border-radius: 54px;
+      padding: 75px 18px 52px 18px;
+      max-width: 440px;
+      width: 94%;
+      box-shadow: 0 7px 48px rgba(0, 0, 0, 0.07);
+      text-align: center;
+    }
+
+    .popup-applied-title {
+      font-size: 4em;
+      font-weight: 800;
+      margin-bottom: 70px;
+      color: #111;
+    }
+
+    .popup-applied-btn {
+      background: #0066cc;
+      color: #fff;
+      font-size: 1.35em;
+      padding: 18px 0;
+      min-width: 230px;
+      width: 85%;
+      border: none;
+      border-radius: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .popup-applied-btn:hover {
+      background: #0052a3;
+      transform: translateY(-1px);
+    }
+  </style>
+
+  <body class="home-body">
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="homeAfter.html" style="text-decoration: none;">
-                    <h1 class="nav-brand">
-                        <span class="skill-nav">Skill</span><span class="two-nav">2</span><span
-                            class="earn-nav">Earn</span>
-                    </h1>
-                </a>
-            </div>
-
-
-            <div class="nav-menu">
-                <a href="homeAfter.html#micro-course" class="nav-link">Micro-Course</a>
-                <a href="homeAfter.html#tasks-list" class="nav-link">Tasks List</a>
-                <a href="ongoingTasksA.html" class="nav-link">Ongoing Tasks</a>
-            </div>
-
-            <div class="nav-actions">
-                <a href="profile2.html" class="profile-btn">
-                    Profile
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="8" r="4" fill="white" />
-                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
-                    </svg>
-                </a>
-
-                <a href="index.html" class="logout-btn">
-                    Logout
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </a>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="homeAfter.html" style="text-decoration: none">
+            <h1 class="nav-brand">
+              <span class="skill-nav">Skill</span><span class="two-nav">2</span
+              ><span class="earn-nav">Earn</span>
+            </h1>
+          </a>
         </div>
+
+        <div class="nav-menu">
+          <a href="homeAfter.html#micro-course" class="nav-link"
+            >Micro-Course</a
+          >
+          <a href="homeAfter.html#tasks-list" class="nav-link">Tasks List</a>
+          <a href="ongoingTasksA.html" class="nav-link">Ongoing Tasks</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="profile2.html" class="profile-btn">
+            Profile
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="white" />
+              <path
+                d="M4 20c0-4 3.6-7 8-7s8 3 8 7"
+                stroke="white"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </a>
+
+          <a href="index.html" class="logout-btn">
+            Logout
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </nav>
 
     <div class="taskdesc-container">
-        <div class="taskdesc-header">
-            <img src="assets/img/job.png" alt="Company Logo" class="taskdesc-logo" />
-            <div>
-                <div class="taskdesc-company">PT. Tiga Periode Emas Bangsa</div>
-                <div class="taskdesc-title">Logo Designer</div>
-            </div>
-            <div class="taskdesc-save">
-                <svg width="28" height="28" fill="none">
-                    <rect width="28" height="28" rx="8" fill="#fff" />
-                    <path
-                        d="M14 21L11 19.1C7.25 16.65 5 14.85 5 12.5C5 10.5 6.5 9 8.5 9C9.74 9 10.92 9.62 11.57 10.58C11.98 11.16 12.82 11.16 13.23 10.58C13.88 9.62 15.06 9 16.3 9C18.3 9 19.8 10.5 19.8 12.5C19.8 14.85 17.55 16.65 13.81 19.1L14 21Z"
-                        stroke="#B8C4D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
+      <div class="taskdesc-header">
+        <img
+          src="assets/img/job.png"
+          alt="Company Logo"
+          class="taskdesc-logo"
+        />
+        <div>
+          <div class="taskdesc-company">PT. Tiga Periode Emas Bangsa</div>
+          <div class="taskdesc-title">Logo Designer</div>
         </div>
+        <div class="taskdesc-save">
+          <svg width="28" height="28" fill="none">
+            <rect width="28" height="28" rx="8" fill="#fff" />
+            <path
+              d="M14 21L11 19.1C7.25 16.65 5 14.85 5 12.5C5 10.5 6.5 9 8.5 9C9.74 9 10.92 9.62 11.57 10.58C11.98 11.16 12.82 11.16 13.23 10.58C13.88 9.62 15.06 9 16.3 9C18.3 9 19.8 10.5 19.8 12.5C19.8 14.85 17.55 16.65 13.81 19.1L14 21Z"
+              stroke="#B8C4D2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
 
-        <div class="taskdesc-main">
-            <div class="taskdesc-section">
-                <div class="taskdesc-subtitle">Project Overview</div>
-                <div class="taskdesc-overview">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book ...
-                </div>
-            </div>
-            <div class="taskdesc-section">
-                <div class="taskdesc-subtitle">Skills</div>
-                <div class="taskdesc-skills">
-                    <span class="skill-pill">UI Designer</span>
-                    <span class="skill-pill">Figma</span>
-                    <span class="skill-pill">Photoshop</span>
-                </div>
-            </div>
-            <div class="taskdesc-section mb24">
-                <div class="taskdesc-subtitle">Detail Project</div>
-                <div class="taskdesc-details">
-                    <span class="detail-label">Deadline:</span> <span class="detail-value">1 Week</span>
-                    <span class="detail-dot verified"></span> Project Verified
-                    <span class="detail-dot verified"></span> Payment Verified
-                </div>
-                <div class="taskdesc-contact-row">
-                    <input class="taskdesc-email" type="text" value="pt.3periode@gmail.com" readonly />
-                    <button class="copy-btn">&#128203;</button>
-                    <button class="taskdesc-apply-btn">Apply</button>
-                </div>
-            </div>
+      <div class="taskdesc-main">
+        <div class="taskdesc-section">
+          <div class="taskdesc-subtitle">Project Overview</div>
+          <div class="taskdesc-overview">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book ...
+          </div>
         </div>
+        <div class="taskdesc-section">
+          <div class="taskdesc-subtitle">Skills</div>
+          <div class="taskdesc-skills">
+            <span class="skill-pill">UI Designer</span>
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">Photoshop</span>
+          </div>
+        </div>
+        <div class="taskdesc-section mb24">
+          <div class="taskdesc-subtitle">Detail Project</div>
+          <div class="taskdesc-details">
+            <span class="detail-label">Deadline:</span>
+            <span class="detail-value">1 Week</span>
+            <span class="detail-dot verified"></span> Project Verified
+            <span class="detail-dot verified"></span> Payment Verified
+          </div>
+          <div class="taskdesc-contact-row">
+            <input
+              class="taskdesc-email"
+              type="text"
+              value="pt.3periode@gmail.com"
+              readonly
+            />
+            <button class="copy-btn">&#128203;</button>
+            <button class="taskdesc-apply-btn">Apply</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="popup-overlay" id="applied-popup">
-        <div class="popup-applied-card">
-            <h1 class="popup-applied-title">Task Applied</h1>
-            <button class="popup-applied-btn" onclick="closeAppliedPopup()">Confirm</button>
-        </div>
+      <div class="popup-applied-card">
+        <h1 class="popup-applied-title">Task Applied</h1>
+        <button class="popup-applied-btn" onclick="closeAppliedPopup()">
+          Confirm
+        </button>
+      </div>
     </div>
 
-    <script>document.querySelector('.taskdesc-apply-btn').addEventListener('click', function () {
-            document.getElementById('applied-popup').style.display = 'flex';
+    <script>
+      document
+        .querySelector(".taskdesc-apply-btn")
+        .addEventListener("click", function () {
+          document.getElementById("applied-popup").style.display = "flex";
         });
-        function closeAppliedPopup() {
-            document.getElementById('applied-popup').style.display = 'none';
-        }</script>
-</body>
-
+      function closeAppliedPopup() {
+        document.getElementById("applied-popup").style.display = "none";
+      }
+    </script>
+  </body>
 </html>

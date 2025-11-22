@@ -3,26 +3,454 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Skill2Earn - Ongoing Tasks</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <body></body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ongoing Tasks</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    .skill-nav {
+      color: #fff;
+    }
+
+    .two-nav {
+      color: #7dd3c0;
+    }
+
+    .earn-nav {
+      color: #fff;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .ongoing-wrapper {
+      display: flex;
+      gap: 38px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 90px 20px 0 20px;
+    }
+
+    .ongoing-left {
+      flex: 2;
+    }
+
+    .ongoing-right {
+      flex: 2;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 32px rgba(0, 0, 0, 0.05);
+      padding: 40px 34px;
+      min-width: 370px;
+      margin-top: 12px;
+      height: fit-content;
+    }
+
+    .mb-22 {
+      margin-bottom: 22px;
+    }
+
+    .upload-file-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .upload-area {
+      width: 98%;
+      min-width: 330px;
+      min-height: 170px;
+      border: 2.5px dotted #d5dce0;
+      border-radius: 18px;
+      background: #fbfbfc;
+      color: #111;
+      font-size: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .submit-review-btn {
+      background: #0066cc;
+      color: #fff;
+      font-size: 1.16em;
+      font-weight: 700;
+      border-radius: 12px;
+      width: 88%;
+      min-width: 260px;
+      border: none;
+      padding: 17px 0;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.18s;
+      margin-top: 8px;
+    }
+
+    .submit-review-btn:hover {
+      background: #0052a3;
+      transform: translateY(-1px);
+    }
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .loading-icon {
+      animation: rotate 1.2s linear infinite;
+      transform-origin: center;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .task-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+      border: 1.8px solid #e5eaf0;
+      padding: 18px 30px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 320px;
+    }
+    .task-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .task-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .task-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: #f6f8fa;
+      object-fit: cover;
+    }
+
+    .task-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-title {
+      font-size: 1.16em;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 2px;
+    }
+
+    .task-desc {
+      font-size: 0.98em;
+      color: #666;
+      margin-bottom: 2px;
+      max-width: 340px;
+      letter-spacing: 0.01em;
+    }
+
+    .task-tags {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+      margin-top: 2px;
+    }
+    .task-tags .task-tag-apply {
+      text-decoration: none;
+    }
+    .task-tag {
+      background: #f3f5f8;
+      color: #222;
+      font-size: 0.92em;
+      border-radius: 9px;
+      padding: 6px 18px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .task-tag-apply {
+      background: #0066cc;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .task-right {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .task-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1em;
+      flex-wrap: wrap;
+      color: #222;
+      margin-top: 4px;
+    }
+
+    .task-pay {
+      font-weight: 700;
+    }
+
+    .task-verified {
+      color: #26a3b6;
+      font-weight: 600;
+      font-size: 0.98em;
+    }
+
+    .task-deadline {
+      color: #636875;
+      font-size: 0.98em;
+      font-weight: 600;
+    }
+    .taskdesc-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 22px;
+      margin-bottom: 25px;
+    }
+
+    .taskdesc-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-right: 4px;
+    }
+
+    .taskdesc-company {
+      color: #888;
+      font-size: 1.18em;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .taskdesc-title {
+      font-size: 2em;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 2px;
+    }
+
+    .taskdesc-save {
+      margin-left: auto;
+      padding-top: 8px;
+      cursor: pointer;
+    }
+    #payment-popup.popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      background: rgba(60, 60, 60, 0.13);
+      z-index: 3000;
+    }
+    .popup-payment-card {
+      background: #ededed;
+      border-radius: 54px;
+      padding: 70px 16px 52px 16px;
+      max-width: 500px;
+      width: 93%;
+      box-shadow: 0 7px 48px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .popup-payment-title {
+      font-size: 2.45em;
+      font-weight: 700;
+      margin-bottom: 44px;
+      color: #111;
+    }
+
+    .popup-payment-confirm {
+      font-size: 2em;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 24px;
+    }
+
+    .popup-payment-icon {
+      margin: 0 auto 44px auto;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-payment-btn {
+      background: #0066cc;
+      color: #fff;
+      font-size: 1.35em;
+      padding: 18px 0;
+      min-width: 230px;
+      width: 85%;
+      border: none;
+      border-radius: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .popup-payment-btn:hover {
+      background: #0052a3;
+      transform: translateY(-1px);
+    }
+  </style>
 
   <body class="home-body">
     <!-- Navigation Bar -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <a href="home.html" style="text-decoration: none">
+          <a href="umkm-home.html" style="text-decoration: none">
             <h1 class="nav-brand">
               <span class="skill-nav">Skill</span><span class="two-nav">2</span
               ><span class="earn-nav">Earn</span>
@@ -31,7 +459,7 @@
         </div>
 
         <div class="nav-menu">
-          <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
+          <a href="umkm-task.html" class="nav-link">Tasks List</a>
         </div>
 
         <div class="nav-actions">

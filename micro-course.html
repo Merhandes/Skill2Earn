@@ -1,64 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill2Earn - Micro-Course</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micro-Course</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
 
-<body class="home-body">
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    .skill-nav {
+      color: #fff;
+    }
+
+    .two-nav {
+      color: #7dd3c0;
+    }
+
+    .earn-nav {
+      color: #fff;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    .microcourse-wrapper {
+      max-width: 1100px;
+      margin: 110px auto 0 auto;
+      background: #e8ecef;
+      border-radius: 24px;
+      padding: 36px 36px 54px 36px;
+      box-shadow: 0 8px 36px rgba(0, 0, 0, 0.03);
+      text-align: center;
+    }
+
+    .microcourse-title {
+      font-size: 2.7em;
+      font-weight: 800;
+      color: #212121;
+      margin-bottom: 32px;
+      letter-spacing: 0;
+    }
+
+    .microcourse-img {
+      width: 100%;
+      border-radius: 28px;
+      display: block;
+      object-fit: cover;
+      min-height: 380px;
+    }
+
+    .microcourse-btn {
+      background-color: #0066cc;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 600;
+      border-radius: 14px;
+      padding: 18px 0;
+      width: 35%;
+      min-width: 260px;
+      border: none;
+      margin-top: 16px;
+      margin-bottom: 0;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+      cursor: pointer;
+      transition: all 0.22s;
+      display: block;
+      margin: 32px auto 0 auto;
+      text-align: center;
+    }
+
+    .microcourse-btn:hover {
+      background-color: #0052a3;
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <body class="home-body">
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="home.html" style="text-decoration: none;">
-                    <h1 class="nav-brand">
-                        <span class="skill-nav">Skill</span><span class="two-nav">2</span><span
-                            class="earn-nav">Earn</span>
-                    </h1>
-                </a>
-            </div>
-
-            <div class="nav-menu">
-                <a href="home.html#micro-course" class="nav-link">Micro-Course</a>
-                <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
-                <a href="ongoingTasksB.html" class="nav-link">Ongoing Tasks</a>
-            </div>
-
-            <div class="nav-actions">
-                <a href="profile.html" class="profile-btn">
-                    Profile
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="8" r="4" fill="white" />
-                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
-                    </svg>
-                </a>
-
-                <a href="index.html" class="logout-btn">
-                    Logout
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </a>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="home.html" style="text-decoration: none">
+            <h1 class="nav-brand">
+              <span class="skill-nav">Skill</span><span class="two-nav">2</span
+              ><span class="earn-nav">Earn</span>
+            </h1>
+          </a>
         </div>
+
+        <div class="nav-menu">
+          <a href="home.html#micro-course" class="nav-link">Micro-Course</a>
+          <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
+          <a href="ongoingTasksB.html" class="nav-link">Ongoing Tasks</a>
+        </div>
+
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-btn">
+            Profile
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="white" />
+              <path
+                d="M4 20c0-4 3.6-7 8-7s8 3 8 7"
+                stroke="white"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </a>
+
+          <a href="index.html" class="logout-btn">
+            Logout
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
     </nav>
 
-
     <div class="microcourse-wrapper">
-        <h1 class="microcourse-title">Copywriting Training Video</h1>
-        <div class="microcourse-card">
-            <img src="assets/img/copywriting.png" alt="Copywriting Video" class="microcourse-img">
-        </div>
+      <h1 class="microcourse-title">Copywriting Training Video</h1>
+      <div class="microcourse-card">
+        <img
+          src="assets/img/copywriting.png"
+          alt="Copywriting Video"
+          class="microcourse-img"
+        />
+      </div>
     </div>
-    <a href="gate.html" style="text-decoration: none;">
-        <button class="microcourse-btn">Continue to Gate</button>
+    <a href="gate.html" style="text-decoration: none">
+      <button class="microcourse-btn">Continue to Gate</button>
     </a>
-    </div>
-
-</body>
-
+  </body>
 </html>

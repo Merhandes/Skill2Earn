@@ -3,9 +3,341 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Skill2Earn</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Skill2Earn - Home</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+
+    .skill-nav {
+      color: #fff;
+    }
+
+    .two-nav {
+      color: #7dd3c0;
+    }
+
+    .earn-nav {
+      color: #fff;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .home-main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    .section-micro-course {
+      background-color: #d5dce0;
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+    }
+    .section-header {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+    .course-card {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-purple {
+      background: linear-gradient(135deg, #6b46c1 0%, #553c9a 100%);
+    }
+
+    .course-blue {
+      background: linear-gradient(135deg, #5b9bd5 0%, #4a7fb8 100%);
+    }
+
+    .course-green {
+      background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    }
+
+    .course-purple-alt {
+      background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+    }
+
+    .course-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .course-title {
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 15px;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+    }
+    .course-status {
+      margin-top: 13px;
+      font-size: 1.18em;
+      color: #a5a9a7;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      background: #eafaf1;
+      display: inline-block;
+      padding: 4px 18px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+    .section-tasks-list {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      min-height: 400px;
+    }
+    .tasklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px 28px;
+      margin-top: 10px;
+    }
+
+    .task-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+      border: 1.8px solid #e5eaf0;
+      padding: 18px 30px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 320px;
+    }
+    .task-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .task-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      background: #f6f8fa;
+      object-fit: cover;
+    }
+
+    .task-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-title {
+      font-size: 1.16em;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 2px;
+    }
+
+    .task-desc {
+      font-size: 0.98em;
+      color: #666;
+      margin-bottom: 2px;
+      max-width: 340px;
+      letter-spacing: 0.01em;
+    }
+
+    .task-tags {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+      margin-top: 2px;
+    }
+    .task-tags .task-tag-apply {
+      text-decoration: none;
+    }
+    .task-tag {
+      background: #f3f5f8;
+      color: #222;
+      font-size: 0.92em;
+      border-radius: 9px;
+      padding: 6px 18px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .task-tag-apply {
+      background: #0066cc;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .task-right {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .task-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 1em;
+      flex-wrap: wrap;
+      color: #222;
+      margin-top: 4px;
+    }
+
+    .task-pay {
+      font-weight: 700;
+    }
+
+    .task-verified {
+      color: #26a3b6;
+      font-weight: 600;
+      font-size: 0.98em;
+    }
+
+    .task-deadline {
+      color: #636875;
+      font-size: 0.98em;
+      font-weight: 600;
+    }
+  </style>
 
   <body class="home-body">
     <!-- Navigation Bar -->

@@ -1,147 +1,513 @@
 <!DOCTYPE html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skill2Earn - Profile</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile - Skill2Earn</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-body {
+      background-color: #e8ecef;
+      display: block;
+      align-items: flex-start;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      padding: 15px 0;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+    }
 
-<body class="home-body">
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="home.html" style="text-decoration: none;">
-          <h1 class="nav-brand">
-            <span class="skill-nav">Skill</span><span class="two-nav">2</span><span class="earn-nav">Earn</span>
-          </h1>
-        </a>
-      </div>
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
+    .nav-brand {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin: 0;
+    }
 
-      <div class="nav-menu">
-        <a href="home.html#micro-course" class="nav-link">Micro-Course</a>
-        <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
-        <a href="ongoingTasksB.html" class="nav-link">Ongoing Tasks</a>
-      </div>
+    .skill-nav {
+      color: #fff;
+    }
 
-      <div class="nav-actions">
-        <a href="profile.html" class="profile-btn">
-          Profile
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="8" r="4" fill="white" />
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="white" stroke-width="2" fill="none" />
-          </svg>
-        </a>
+    .two-nav {
+      color: #7dd3c0;
+    }
 
-        <a href="index.html" class="logout-btn">
-          Logout
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="white" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </nav>
+    .earn-nav {
+      color: #fff;
+    }
 
-  <!-- MAIN PROFILE CONTENT -->
-  <main class="profile-main">
-    <section class="profile-card">
-      <!-- top: avatar + name + badges -->
-      <div class="profile-top">
-        <div class="profile-picture">
-          <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="50" fill="#cbd5e0" />
-            <circle cx="50" cy="40" r="18" fill="#fff" />
-            <path d="M 20 85 Q 20 60 50 60 Q 80 60 80 85" fill="#fff" />
-          </svg>
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+    }
+
+    .nav-logo a:hover .nav-brand {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.8;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .profile-btn,
+    .logout-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .profile-btn:hover,
+    .logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .profile-header {
+      flex: 1;
+    }
+
+    .profile-meta {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 4px;
+    }
+
+    .profile-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center; /* tadinya flex-start */
+      gap: 30px;
+      position: relative;
+    }
+
+    .profile-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .profile-badges img {
+      height: 40px;
+    }
+    .profile-edit-btn {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 999px;
+      transition: background 0.2s ease;
+    }
+
+    .profile-edit-btn:hover {
+      background-color: #f1f3f4;
+    }
+    .profile-section-block {
+      margin-top: 32px;
+    }
+
+    .profile-section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 12px;
+    }
+
+    .profile-description-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+    }
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-pill {
+      background-color: #f1f3f4;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 14px;
+      color: #444;
+      font-weight: 500;
+    }
+
+    .portfolio-files {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .file-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background-color: #f1f3f4;
+      font-size: 14px;
+      color: #444;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .file-chip:hover {
+      background-color: #e6eaee;
+      transform: translateY(-1px);
+    }
+
+    .file-icon {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #4f8df5;
+    }
+
+    .profile-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .email-box {
+      flex: 1;
+      background-color: #f5f6f7;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .email-text {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .copy-btn {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: #e2e6ea;
+    }
+
+    .contact-btn {
+      background-color: #0066cc;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #0052a3;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    }
+    .profile-main {
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 40px;
+    }
+    .profile-card {
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    }
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #cbd5e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .profile-picture svg {
+      width: 100%;
+      height: 100%;
+    }
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <body class="home-body">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="home.html" style="text-decoration: none">
+            <h1 class="nav-brand">
+              <span class="skill-nav">Skill</span><span class="two-nav">2</span
+              ><span class="earn-nav">Earn</span>
+            </h1>
+          </a>
         </div>
 
-        <div class="profile-header">
-          <p class="profile-meta">Male - DD/MM/YYYY</p>
-          <h1 class="profile-name">Arya Setiawan</h1>
+        <div class="nav-menu">
+          <a href="home.html#micro-course" class="nav-link">Micro-Course</a>
+          <a href="home.html#tasks-list" class="nav-link">Tasks List</a>
+          <a href="ongoingTasksB.html" class="nav-link">Ongoing Tasks</a>
+        </div>
 
-          <div class="profile-badges">
-            <img src="assets/img/badge1.png" alt="badge 1" />
-            <img src="assets/img/badge2.png" alt="badge 2" />
-            <img src="assets/img/badge3.png" alt="badge 3" />
-            <img src="assets/img/badge4.png" alt="badge 4" />
+        <div class="nav-actions">
+          <a href="profile.html" class="profile-btn">
+            Profile
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="4" fill="white" />
+              <path
+                d="M4 20c0-4 3.6-7 8-7s8 3 8 7"
+                stroke="white"
+                stroke-width="2"
+                fill="none"
+              />
+            </svg>
+          </a>
+
+          <a href="index.html" class="logout-btn">
+            Logout
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN PROFILE CONTENT -->
+    <main class="profile-main">
+      <section class="profile-card">
+        <!-- top: avatar + name + badges -->
+        <div class="profile-top">
+          <div class="profile-picture">
+            <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="50" fill="#cbd5e0" />
+              <circle cx="50" cy="40" r="18" fill="#fff" />
+              <path d="M 20 85 Q 20 60 50 60 Q 80 60 80 85" fill="#fff" />
+            </svg>
           </div>
-        </div>
 
-        <!-- edit icon -->
-        <button class="profile-edit-btn" aria-label="Edit profile">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M4 20h4L19 9l-4-4L4 16v4z" stroke="#555" stroke-width="1.6" fill="none" stroke-linecap="round"
-              stroke-linejoin="round" />
-            <path d="M14 5l4 4" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
+          <div class="profile-header">
+            <p class="profile-meta">Male - DD/MM/YYYY</p>
+            <h1 class="profile-name">Arya Setiawan</h1>
 
-      <!-- description -->
-      <section class="profile-section-block">
-        <h2 class="profile-section-title">Profile Description</h2>
-        <p class="profile-description-text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s
-          with the release of Letraset sheets containing Lorem Ipsum passages,
-          and more recently with desktop publishing software like Aldus
-          PageMaker including versions of Lorem Ipsum.
-        </p>
-      </section>
+            <div class="profile-badges">
+              <img src="assets/img/badge1.png" alt="badge 1" />
+              <img src="assets/img/badge2.png" alt="badge 2" />
+              <img src="assets/img/badge3.png" alt="badge 3" />
+              <img src="assets/img/badge4.png" alt="badge 4" />
+            </div>
+          </div>
 
-      <!-- skill interests -->
-      <section class="profile-section-block">
-        <h2 class="profile-section-title">Skill Interests</h2>
-        <div class="skills-tags">
-          <span class="skill-pill">Data Entry</span>
-          <span class="skill-pill">Graphic Design</span>
-        </div>
-      </section>
-
-      <!-- portfolio -->
-      <section class="profile-section-block">
-        <h2 class="profile-section-title">Portofolio</h2>
-
-        <div class="portfolio-files">
-          <button class="file-chip">
-            <span class="file-icon"></span>
-            <span>Portofolio.pdf</span>
-          </button>
-          <button class="file-chip">
-            <span class="file-icon"></span>
-            <span>Portofolio.pdf</span>
-          </button>
-          <button class="file-chip">
-            <span class="file-icon"></span>
-            <span>portofolio.png</span>
+          <!-- edit icon -->
+          <button class="profile-edit-btn" aria-label="Edit profile">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 20h4L19 9l-4-4L4 16v4z"
+                stroke="#555"
+                stroke-width="1.6"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14 5l4 4"
+                stroke="#555"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </button>
         </div>
 
-        <div class="profile-contact-row">
-          <div class="email-box">
-            <span class="email-text">aryasetiawan@gmail.com</span>
-            <button class="copy-btn" aria-label="Copy email">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <rect x="9" y="9" width="11" height="11" rx="2" stroke="#555" stroke-width="1.6" />
-                <rect x="4" y="4" width="11" height="11" rx="2" stroke="#555" stroke-width="1.6" />
-              </svg>
+        <!-- description -->
+        <section class="profile-section-block">
+          <h2 class="profile-section-title">Profile Description</h2>
+          <p class="profile-description-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum.
+          </p>
+        </section>
+
+        <!-- skill interests -->
+        <section class="profile-section-block">
+          <h2 class="profile-section-title">Skill Interests</h2>
+          <div class="skills-tags">
+            <span class="skill-pill">Data Entry</span>
+            <span class="skill-pill">Graphic Design</span>
+          </div>
+        </section>
+
+        <!-- portfolio -->
+        <section class="profile-section-block">
+          <h2 class="profile-section-title">Portofolio</h2>
+
+          <div class="portfolio-files">
+            <button class="file-chip">
+              <span class="file-icon"></span>
+              <span>Portofolio.pdf</span>
+            </button>
+            <button class="file-chip">
+              <span class="file-icon"></span>
+              <span>Portofolio.pdf</span>
+            </button>
+            <button class="file-chip">
+              <span class="file-icon"></span>
+              <span>portofolio.png</span>
             </button>
           </div>
 
-          <button class="contact-btn">Contact</button>
-        </div>
-      </section>
-    </section>
-  </main>
-</body>
+          <div class="profile-contact-row">
+            <div class="email-box">
+              <span class="email-text">aryasetiawan@gmail.com</span>
+              <button class="copy-btn" aria-label="Copy email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <rect
+                    x="9"
+                    y="9"
+                    width="11"
+                    height="11"
+                    rx="2"
+                    stroke="#555"
+                    stroke-width="1.6"
+                  />
+                  <rect
+                    x="4"
+                    y="4"
+                    width="11"
+                    height="11"
+                    rx="2"
+                    stroke="#555"
+                    stroke-width="1.6"
+                  />
+                </svg>
+              </button>
+            </div>
 
+            <button class="contact-btn">Contact</button>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
 </html>
