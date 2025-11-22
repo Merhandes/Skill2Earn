@@ -1,10 +1,10 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Helvetica Neue", Arial, sans-serif;
   background-color: #f8f9fa;
@@ -12,14 +12,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.container {
+/* .container {
   width: 100%;
   max-width: 1200px;
   padding: 20px;
   position: relative;
-}
+} */
 
 /* Decorative circuits */
 .circuit-left {
@@ -35,16 +35,16 @@ body {
 }
 
 /* Main content - Landing page */
-.main-content {
+/* .main-content {
   text-align: center;
   padding: 40px 20px;
-}
+} */
 
-.logo {
+/* .logo {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-}
+} */
 
 .brand-name {
   font-size: 72px;
@@ -65,14 +65,14 @@ body {
   color: #0c3b5c;
 }
 
-.heading {
+/* .heading {
   font-size: 48px;
   font-weight: 700;
   color: #2c3e50;
   margin-bottom: 20px;
-}
+} */
 
-.description {
+/* .description {
   font-size: 18px;
   color: #95a5a6;
   margin-bottom: 50px;
@@ -111,26 +111,26 @@ body {
   background-color: #0052a3;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-}
+} */
 
 /* Login page styles */
-.login-container {
+/* .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
+} */
 
-.login-content {
+/* .login-content {
   background: white;
   padding: 40px;
   border-radius: 16px;
   max-width: 600px;
   width: 100%;
   position: relative;
-}
+} */
 
-.back-button {
+/* .back-button {
   position: absolute;
   top: 20px;
   left: 10px;
@@ -145,9 +145,9 @@ body {
 
 .back-button:hover {
   transform: translateX(-4px);
-}
+} */
 
-.login-heading {
+/* .login-heading {
   font-size: 36px;
   font-weight: 700;
   color: #2c3e50;
@@ -167,9 +167,9 @@ body {
 
 .form-group {
   margin-bottom: 20px;
-}
+} */
 
-.form-input {
+/* .form-input {
   width: 100%;
   padding: 18px 20px;
   font-size: 16px;
@@ -187,13 +187,13 @@ body {
 
 .form-input::placeholder {
   color: #bdc3c7;
-}
+} */
 
-.btn-full {
+/* .btn-full {
   width: 100%;
-}
+} */
 
-.divider {
+/* .divider {
   position: relative;
   text-align: center;
   margin: 30px 0;
@@ -257,10 +257,10 @@ body {
 
 .terms a:hover {
   color: #0066cc;
-}
+} */
 
 /* User Detail Page styles */
-.detail-container {
+/* .detail-container {
   display: flex;
   width: 100%;
   min-height: 100vh;
@@ -293,16 +293,16 @@ body {
 
 .back-button-detail:hover {
   transform: translateX(-4px);
-}
+} */
 
-.detail-logo {
+/* .detail-logo {
   text-align: center;
   margin-top: 60px;
   margin-bottom: 30px;
   filter: brightness(0) invert(1);
-}
+} */
 
-.detail-brand {
+/* .detail-brand {
   font-size: 48px;
   font-weight: 700;
   margin-top: 15px;
@@ -326,9 +326,9 @@ body {
   color: #7dd3c0;
   font-size: 18px;
   font-weight: 500;
-}
+} */
 
-.illustration {
+/* .illustration {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -385,9 +385,9 @@ body {
 .profile-picture svg {
   width: 100%;
   height: 100%;
-}
+} */
 
-.umkm-profile {
+/* .umkm-profile {
   background-color: #cbd5e0;
 }
 
@@ -395,21 +395,21 @@ body {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
-}
+} */
 
-.detail-form {
+/* .detail-form {
   width: 100%;
-}
+} */
 
-.form-label {
+/* .form-label {
   display: block;
   font-size: 14px;
   color: #2c3e50;
   margin-bottom: 12px;
   font-weight: 500;
-}
+} */
 
-.radio-group {
+/* .radio-group {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -433,9 +433,9 @@ body {
 
 .radio-label span {
   user-select: none;
-}
+} */
 
-.microcourse-wrapper {
+/* .microcourse-wrapper {
   max-width: 1100px;
   margin: 110px auto 0 auto;
   background: #e8ecef;
@@ -506,9 +506,9 @@ body {
 .microcourse-btn:hover {
   background-color: #0052a3;
   transform: translateY(-2px);
-}
+} */
 
-.gate-wrapper {
+/* .gate-wrapper {
   max-width: 700px;
   margin: 120px auto 0 auto;
   background: #fff;
@@ -629,9 +629,9 @@ body {
 .popup-btn:hover {
   background: #0052a3;
   transform: translateY(-1px);
-}
+} */
 
-.certification-container {
+/* .certification-container {
   max-width: 900px;
   margin: 110px auto 0 auto;
   background: #fff;
@@ -673,9 +673,9 @@ body {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   background: #f8f9fa;
   display: block;
-}
+} */
 
-.course-status {
+/* .course-status {
   margin-top: 13px;
   font-size: 1.18em;
   color: #a5a9a7;
@@ -686,9 +686,9 @@ body {
   padding: 4px 18px;
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-}
+} */
 
-.tasklist-grid {
+/* .tasklist-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 36px 28px;
@@ -705,10 +705,10 @@ body {
   flex-direction: column;
   gap: 16px;
   min-width: 320px;
-}
+} */
 
 /* Popup Payment Styles */
-#payment-popup.popup-overlay {
+/* #payment-popup.popup-overlay {
   display: none;
   position: fixed;
   inset: 0;
@@ -770,9 +770,9 @@ body {
 .popup-payment-btn:hover {
   background: #0052a3;
   transform: translateY(-1px);
-}
+} */
 
-.task-row {
+/* .task-row {
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -864,9 +864,9 @@ body {
   color: #636875;
   font-size: 0.98em;
   font-weight: 600;
-}
+} */
 
-.ongoing-wrapper {
+/* .ongoing-wrapper {
   display: flex;
   gap: 38px;
   max-width: 1400px;
@@ -934,16 +934,16 @@ body {
 .submit-review-btn:hover {
   background: #0052a3;
   transform: translateY(-1px);
-}
+} */
 
-.certification-label {
+/* .certification-label {
   font-size: 1.5em;
   font-weight: 700;
   color: #222;
   margin-top: 7px;
-}
+} */
 
-.certification-btn {
+/* .certification-btn {
   margin: 28px auto 0 auto;
   background-color: #0066cc;
   color: #fff;
@@ -962,7 +962,7 @@ body {
 .certification-btn:hover {
   background: #0052a3;
   transform: translateY(-2px);
-}
+} */
 
 /* Ongoing Section Main Wrapper */
 .section-ongoing {
@@ -971,7 +971,7 @@ body {
   margin-bottom: 40px;
 }
 
-.popup-overlay {
+/* .popup-overlay {
   position: fixed;
   inset: 0;
   display: none;
@@ -1017,7 +1017,7 @@ body {
 .popup-applied-btn:hover {
   background: #0052a3;
   transform: translateY(-1px);
-}
+} */
 
 /* Bagian atas (abu-abu) */
 .ongoing-top {
@@ -1027,17 +1027,17 @@ body {
   min-height: 320px;
 }
 
-.section-title {
+/* .section-title {
   font-size: 32px;
   font-weight: 700;
   color: #1a1a1a;
   display: flex;
   align-items: center;
   gap: 10px;
-}
+} */
 
 /* Loading spinner */
-.loading-icon {
+/* .loading-icon {
   animation: rotate 1.2s linear infinite;
   transform-origin: center;
 }
@@ -1050,10 +1050,10 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 /* Pesan kosong Ongoing */
-.ongoing-empty {
+/* .ongoing-empty {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1066,16 +1066,16 @@ body {
   text-align: center;
   max-width: 700px;
   line-height: 1.5;
-}
+} */
 
 /* Bagian bawah (putih seperti Completed Tasks) */
-.ongoing-bottom {
+/* .ongoing-bottom {
   background-color: #ffffff;
   padding: 40px;
   min-height: 320px;
-}
+} */
 
-.completed-empty {
+/* .completed-empty {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1088,10 +1088,10 @@ body {
   text-align: center;
   max-width: 700px;
   line-height: 1.5;
-}
+} */
 
 /* Responsive design */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .detail-container {
     flex-direction: column;
   }
@@ -1125,17 +1125,17 @@ body {
   .welcome-heading {
     font-size: 32px;
   }
-}
+} */
 
 @media (max-width: 768px) {
-  .circuit-left,
+  /* .circuit-left,
   .circuit-right {
     display: none;
-  }
+  } */
 
-  .brand-name {
+  /* .brand-name {
     font-size: 48px;
-  }
+  } */
 
   .heading {
     font-size: 32px;
@@ -1145,18 +1145,18 @@ body {
     font-size: 16px;
   }
 
-  .login-content {
+  /* .login-content {
     padding: 30px 20px;
-  }
+  } */
 
-  .back-button {
+  /* .back-button {
     top: 30px;
     left: 20px;
-  }
+  } */
 
-  .login-heading {
+  /* .login-heading {
     font-size: 28px;
-  }
+  } */
 
   .social-btn {
     width: 60px;
@@ -1183,14 +1183,14 @@ body {
 }
 
 /* Home Page Styles */
-.home-body {
+/* .home-body {
   background-color: #e8ecef;
   display: block;
   align-items: flex-start;
-}
+} */
 
 /* Navigation Bar */
-.navbar {
+/* .navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -1289,24 +1289,24 @@ body {
 .logout-btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
-}
+} */
 
 /* Main Content */
-.home-main {
+/* .home-main {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px;
-}
+} */
 
 /* Micro-Course Section */
-.section-micro-course {
+/* .section-micro-course {
   background-color: #d5dce0;
   padding: 40px;
   border-radius: 20px;
   margin-bottom: 40px;
-}
+} */
 
-.taskdesc-container {
+/* .taskdesc-container {
   max-width: 750px;
   margin: 70px auto 0 auto;
   background: #fff;
@@ -1467,9 +1467,9 @@ body {
 .taskdesc-apply-btn:hover {
   background: #0052a3;
   transform: translateY(-1px);
-}
+} */
 
-.section-header {
+/* .section-header {
   margin-bottom: 30px;
 }
 
@@ -1486,9 +1486,9 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
-}
+} */
 
-.course-card {
+/* .course-card {
   aspect-ratio: 1;
   border-radius: 16px;
   overflow: hidden;
@@ -1540,10 +1540,10 @@ body {
   margin-top: 15px;
   line-height: 1.2;
   letter-spacing: 0.5px;
-}
+} */
 
 /* Tasks List Section */
-.section-tasks-list {
+/* .section-tasks-list {
   background-color: white;
   padding: 40px;
   border-radius: 20px;
@@ -1563,9 +1563,9 @@ body {
   text-align: center;
   max-width: 800px;
   line-height: 1.6;
-}
+} */
 
-.profile-main {
+/* .profile-main {
   max-width: 1200px;
   margin: 40px auto 60px;
   padding: 0 40px;
@@ -1576,10 +1576,10 @@ body {
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
-}
+} */
 
 /* Header atas */
-.profile-top {
+/* .profile-top {
   display: flex;
   align-items: flex-start;
   gap: 30px;
@@ -1611,10 +1611,10 @@ body {
 
 .profile-badges img {
   height: 40px;
-}
+} */
 
 /* Tombol edit */
-.profile-edit-btn {
+/* .profile-edit-btn {
   position: absolute;
   top: 10px;
   right: 0;
@@ -1628,10 +1628,10 @@ body {
 
 .profile-edit-btn:hover {
   background-color: #f1f3f4;
-}
+} */
 
 /* Section kecil di bawahnya */
-.profile-section-block {
+/* .profile-section-block {
   margin-top: 32px;
 }
 
@@ -1646,10 +1646,10 @@ body {
   font-size: 15px;
   line-height: 1.7;
   color: #555;
-}
+} */
 
 /* Skill Interests */
-.skills-tags {
+/* .skills-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -1662,10 +1662,10 @@ body {
   font-size: 14px;
   color: #444;
   font-weight: 500;
-}
+} */
 
 /* Portofolio files */
-.portfolio-files {
+/* .portfolio-files {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -1689,17 +1689,17 @@ body {
 .file-chip:hover {
   background-color: #e6eaee;
   transform: translateY(-1px);
-}
+} */
 
-.file-icon {
+/* .file-icon {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background-color: #4f8df5;
-}
+} */
 
 /* Email + Contact */
-.profile-contact-row {
+/* .profile-contact-row {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -1750,20 +1750,20 @@ body {
   background-color: #0052a3;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-}
-.profile-name {
+} */
+/* .profile-name {
   font-size: 32px;
   font-weight: 700;
   color: #222;
   margin-bottom: 14px;
-  margin-top: 6px; /* tambah ini, bisa diatur 4–10px sesuai selera */
-}
-.profile-top {
+  margin-top: 6px;
+} */
+/* .profile-top {
   display: flex;
   align-items: center; /* tadinya flex-start */
   gap: 30px;
   position: relative;
-}
+} */
 /* Tombol Upload Task */
 .upload-task-btn {
   margin-left: auto; /* dorong ke paling kanan */
@@ -1792,16 +1792,16 @@ body {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 /* WRAPPER AGAR SEMUA SEJAJAR */
-.mode-create-row {
+/* .mode-create-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 24px;
   gap: 20px;
-}
+} */
 
 /* MODE LABEL + RADIO */
-.mode-row {
+/* .mode-row {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -1811,7 +1811,7 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: #222;
-}
+} */
 
 /* RADIO BUTTON */
 .mode-selector {
@@ -1851,7 +1851,7 @@ body {
 }
 
 /* BUTTON CREATE */
-.btn-create {
+/* .btn-create {
   margin-left: auto; /* dorong ke paling kanan */
   margin-top: 20px;
   padding: 12px 36px;
@@ -1871,9 +1871,9 @@ body {
   background: #0041a8;
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-}
+} */
 /* Responsive Design for Home */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .course-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1922,4 +1922,4 @@ body {
   .tasks-message {
     font-size: 18px;
   }
-}
+} */
