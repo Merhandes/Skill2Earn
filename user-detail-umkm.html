@@ -163,13 +163,21 @@
       font-size: 16px;
       border: 2px solid #e0e0e0;
       border-radius: 12px;
-      outline: none;
-      transition: border-color 0.3s ease;
       background-color: #f8f9fa;
+    }
 
-      /* nambahanin ini agar tampilan mobile diberbagai browser compatible */
-      appearance: none;
-      -webkit-appearance: none;
+    /* wrapper supaya posisi tetap */
+    .date-wrapper {
+      position: relative;
+    }
+
+    /* jangan gunakan display:none — mobile tidak bisa klik */
+    .real-date {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     /* ini juga ditambahkan agar tampilan mobile diberbagai browser compatible */
@@ -605,12 +613,17 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group date-wrapper">
               <input
-                type="date"
+                type="text"
+                id="dob"
                 class="form-input"
                 placeholder="Date of Birth: DD/MM/YYYY"
+                readonly
               />
+
+              <!-- real date input, hidden but still clickable -->
+              <input type="date" id="realDate" class="real-date" />
             </div>
 
             <div class="form-group">
@@ -633,5 +646,20 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const dob = document.getElementById("dob");
+      const real = document.getElementById("realDate");
+
+      dob.addEventListener("click", () => {
+        real.focus();
+        real.showPicker(); // berfungsi di mobile Safari & Chrome
+      });
+
+      real.addEventListener("change", () => {
+        if (!real.value) return;
+        const [y, m, d] = real.value.split("-");
+        dob.value = `${d}/${m}/${y}`;
+      });
+    </script>
   </body>
 </html>
